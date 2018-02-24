@@ -6,19 +6,17 @@ function Column(id, name) {
 	this.element = createColumn();
 
 	function createColumn() {
-		// TWORZENIE NOWYCH WÊZ£ÓW
 		var column = $('<div class="column"></div>');
 		var columnTitle = $('<h2 class="column-title">' + self.name + '</h2>');
 		var columnCardList = $('<ul class="card-list"></ul>');
 		var columnDelete = $('<button class="btn-delete">x</button>');
-		var columnAddCard = $('<button class="column-add-card">Dodaj kartê</button>');
+		var columnAddCard = $('<button class="column-add-card">add card</button>');
 		
-		// PODPINANIE ODPOWIEDNICH ZDARZEÑ POD WÊZ£Y
 		columnDelete.click(function() {
 			self.deleteColumn();
 		});
 		
-		$columnAddCard.click(function(event) {
+		columnAddCard.click(function(event) {
 			var cardName = prompt("Enter the name of the card");
 			event.preventDefault();
 			$.ajax({
@@ -35,7 +33,6 @@ function Column(id, name) {
 			});
 		});
 			
-			// KONSTRUOWANIE ELEMENTU KOLUMNY
 		column.append(columnTitle)
 			.append(columnDelete)
 			.append(columnAddCard)
